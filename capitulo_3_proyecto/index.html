@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo de la empresa">
+                </a>
+            </div>
+            
+            <div class="header-contact">
+                <p>Llámanos: (123) 456-7890</p>
+                <p>Email: info@ejemplo.com</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-main">
+        <div class="container">
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li class="has-submenu">
+                    <a href="#servicios">Servicios</a>
+                    <ul class="submenu">
+                        <li><a href="#servicio1">Servicio 1</a></li>
+                        <li><a href="#servicio2">Servicio 2</a></li>
+                        <li><a href="#servicio3">Servicio 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <!-- Añade esto donde quieras tener los controles de tema -->
+
+    </nav>
+
+    <div class="container">
+        <main class="content">
+            <article class="post">
+                <header class="post-header">
+                    <h2 class="post-title">Título del Artículo Principal</h2>
+                    <div class="post-meta">
+                        <span class="post-date">Publicado el 11 Dic, 2024</span>
+                        <span class="post-author">por Admin</span>
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <img src="images/post-image.jpg" alt="Imagen del post" class="post-image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    
+                    <h3>Subtítulo del artículo</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <blockquote>
+                        Esta es una cita importante que queremos destacar en nuestro artículo.
+                    </blockquote>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+
+                <footer class="post-footer">
+                    <div class="post-tags">
+                        <span>Tags:</span>
+                        <a href="#tag1">CSS</a>
+                        <a href="#tag2">Diseño</a>
+                        <a href="#tag3">Web</a>
+                    </div>
+                    
+                    <div class="post-share">
+                        <span>Compartir:</span>
+                        <a href="#" class="share-facebook">Facebook</a>
+                        <a href="#" class="share-twitter">Twitter</a>
+                    </div>
+                </footer>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="theme-switcher">
+                <select id="themeSelect" onchange="toggleTheme(this.value)">
+                    <option value="light">Tema Claro</option>
+                    <option value="dark">Tema Oscuro</option>
+                    <option value="high-contrast">Alto Contraste</option>
+                </select>
+            </div>
+            <div class="widget">
+                <h3 class="widget-title">Categorías</h3>
+                <ul class="widget-content">
+                    <li><a href="#categoria1">Categoría 1</a></li>
+                    <li><a href="#categoria2">Categoría 2</a></li>
+                    <li><a href="#categoria3">Categoría 3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">Posts Recientes</h3>
+                <div class="widget-content">
+                    <article class="post-preview">
+                        <h4>Título del Post</h4>
+                        <p>Extracto del post...</p>
+                        <a href="#leer-mas">Leer más</a>
+                    </article>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Sobre Nosotros</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <address>
+                        <p>Calle Principal 123</p>
+                        <p>Ciudad, País</p>
+                        <p>Email: info@ejemplo.com</p>
+                        <p>Tel: (123) 456-7890</p>
+                    </address>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">Facebook</a>
+                        <a href="#" class="social-link twitter">Twitter</a>
+                        <a href="#" class="social-link instagram">Instagram</a>
+                        <a href="#" class="social-link linkedin">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
