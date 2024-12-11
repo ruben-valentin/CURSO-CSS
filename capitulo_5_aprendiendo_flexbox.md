@@ -2,13 +2,14 @@
 
 ## 5.1. Fundamentos de Flexbox: ¿qué es y cómo funciona?
 
-Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibles y responsivos.
+Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibles y responsivos. Flexbox se centra en distribuir el espacio entre los elementos de un contenedor, incluso si su tamaño es dinámico.
 
 ### Conceptos básicos:
-- **Contenedor flex**: El elemento padre
-- **Items flex**: Los elementos hijos
-- **Eje principal**: Dirección principal del contenedor (horizontal o vertical)
-- **Eje cruzado**: Dirección perpendicular al eje principal
+
+1. **Contenedor Flex**: Es el elemento padre que contiene los elementos flexibles.
+2. **Items Flex**: Son los elementos hijos dentro del contenedor.
+3. **Eje principal**: La dirección definida para la distribución de los items (puede ser horizontal o vertical).
+4. **Eje cruzado**: La dirección perpendicular al eje principal.
 
 ```css
 /* Contenedor Flex básico */
@@ -18,9 +19,14 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 }
 ```
 
+- **`display: flex`** convierte a un elemento en un contenedor flex.
+- **`inline-flex`** hace que el contenedor flex actúe como un elemento inline.
+
+---
+
 ## 5.2. Configuración del contenedor flex
 
-### Propiedades principales del contenedor:
+El contenedor flex es el elemento padre que controla la distribución de los items. Sus propiedades principales son:
 
 ```css
 .contenedor-flex {
@@ -44,7 +50,33 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 }
 ```
 
+### Explicaciones detalladas:
+
+1. **`flex-direction`**
+   - Define la dirección del eje principal:
+     - `row`: Dirección horizontal de izquierda a derecha (predeterminado).
+     - `column`: Dirección vertical de arriba a abajo.
+     - `row-reverse` o `column-reverse`: Dirección inversa.
+
+2. **`flex-wrap`**
+   - Controla si los items deben envolverse en caso de que el espacio sea insuficiente:
+     - `nowrap`: Sin envoltura (predeterminado).
+     - `wrap`: Los items se envuelven a una nueva línea.
+     - `wrap-reverse`: Envoltura inversa.
+
+3. **`justify-content`**
+   - Controla la distribución de los items a lo largo del eje principal:
+     - `flex-start`: Los items se alinean al inicio.
+     - `center`: Los items se centran.
+     - `space-between`: Espaciado uniforme entre los items.
+
+4. **`align-items`**
+   - Alinea los items en el eje cruzado (perpendicular):
+     - `stretch`: Los items se estiran para llenar el contenedor.
+     - `center`: Los items se centran en el eje cruzado.
+
 ### Ejemplo práctico:
+
 ```html
 <div class="contenedor-flex">
     <div class="item">1</div>
@@ -71,9 +103,13 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 </style>
 ```
 
+---
+
 ## 5.3. Gestión de elementos flexibles
 
-### Propiedades de los items flex:
+### Propiedades principales de los items flex
+
+Los elementos hijos dentro de un contenedor flex (items flex) pueden tener las siguientes propiedades:
 
 ```css
 .item-flex {
@@ -97,23 +133,62 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 }
 ```
 
-### Ejemplo de uso:
-```css
+### Explicaciones detalladas:
+
+1. **`order`**: Cambia el orden visual de los items sin modificar el HTML.
+   ```css
+   .item1 {
+       order: 1; /* Este item aparecerá después de otros con order 0 */
+   }
+   ```
+
+2. **`flex-grow`**: Define cuánto puede crecer un item para llenar el espacio disponible.
+   ```css
+   .item {
+       flex-grow: 2; /* Crecerá dos veces más que otros items */
+   }
+   ```
+
+3. **`flex-shrink`**: Determina si un item puede encogerse cuando el espacio es limitado.
+   ```css
+   .item {
+       flex-shrink: 0; /* Este item no se encogerá */
+   }
+   ```
+
+4. **`flex-basis`**: Define el tamaño inicial del item antes de aplicar `grow` o `shrink`.
+   ```css
+   .item {
+       flex-basis: 100px; /* Tamaño base fijo de 100px */
+   }
+   ```
+
+### Ejemplo práctico:
+
+```html
+<div class="contenedor">
+    <div class="item" style="flex: 2;">Item 1</div>
+    <div class="item" style="flex: 1;">Item 2</div>
+    <div class="item" style="flex: 0 0 200px;">Item Fijo</div>
+</div>
+
+<style>
 .contenedor {
     display: flex;
     gap: 10px;
 }
 
 .item {
-    /* El item crecerá dos veces más que otros items */
-    flex: 2;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
 }
-
-.item-fijo {
-    /* Este item mantendrá su tamaño */
-    flex: 0 0 200px;
-}
+</style>
 ```
+
+---
 
 ## 5.4. Usar media queries con Flexbox
 
@@ -148,6 +223,10 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
     }
 }
 ```
+
+Este ejemplo demuestra cómo ajustar un layout según el tamaño de la pantalla usando Flexbox y media queries.
+
+---
 
 ## 5.5. Diseño de una galería con Flexbox
 
@@ -206,9 +285,14 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 </style>
 ```
 
+Este ejemplo muestra cómo crear una galería responsiva y atractiva usando Flexbox.
+
 ## 5.6. Creación de layouts con Flexbox
 
-### Layout de Aplicación Común:
+### Layout de Aplicación Común
+
+El siguiente ejemplo demuestra cómo Flexbox puede usarse para estructurar una aplicación web con un header, un footer, una barra lateral, un área de navegación y contenido principal.
+
 ```html
 <div class="app-layout">
     <header class="app-header">Header</header>
@@ -270,9 +354,20 @@ Flexbox es un modelo de diseño unidimensional que permite crear layouts flexibl
 </style>
 ```
 
+#### Explicación
+
+1. **Estructura principal:** La aplicación se divide en `header`, `main` y `footer`.
+2. **Distribución del contenido:**
+   - `app-header` y `app-footer` tienen un tamaño fijo con `flex: 0 0 auto`.
+   - `app-main` utiliza `flex: 1` para ocupar el espacio restante.
+   - Dentro de `app-main`, la navegación, el contenido y la barra lateral se distribuyen usando `flex`.
+3. **Responsividad:** Con media queries, el diseño cambia a una distribución vertical en dispositivos pequeños.
+
+---
+
 ## 5.7. Aprendiendo Flexbox con el juego Froggy
 
-Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aquí algunos ejemplos de los desafíos:
+Flexbox Froggy es un juego interactivo que enseña las propiedades de Flexbox de manera divertida. Algunos ejemplos de los desafíos incluyen:
 
 ```css
 /* Nivel básico - Centrar una rana */
@@ -298,7 +393,16 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 }
 ```
 
+#### Explicación de conceptos aplicados:
+- `justify-content`: Controla la distribución de los items en el eje principal.
+- `align-items`: Alinea los items en el eje cruzado.
+- `flex-direction`: Cambia la dirección del eje principal.
+
+---
+
 ## 5.8. Flexbox Defense: un enfoque lúdico
+
+Flexbox Defense es otro juego educativo que ayuda a reforzar las habilidades en Flexbox a través de un entorno interactivo.
 
 ```css
 /* Posicionamiento de torres */
@@ -315,9 +419,18 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 }
 ```
 
+#### Explicación
+- `justify-content: space-around`: Asegura que haya un espaciado igual entre los items.
+- `align-self`: Alinea un item de forma individual en el eje cruzado, sobrescribiendo `align-items`.
+
+---
+
 ## 5.9. Ejemplos prácticos y casos de uso de Flexbox
 
 ### Layout de Card con Flexbox
+
+Un diseño común para tarjetas que aprovecha Flexbox para alinear los elementos internos de forma efectiva.
+
 ```html
 <div class="card">
     <div class="card-header">
@@ -343,6 +456,8 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
     max-width: 300px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: #fff;
 }
 
 .card-header {
@@ -372,7 +487,16 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 </style>
 ```
 
+#### Explicación
+- **`flex-direction: column`**: Coloca los elementos de la tarjeta verticalmente.
+- **`align-items: center`**: Centra los elementos del encabezado.
+- **`justify-content: space-between`**: Distribuye los botones en el pie de la tarjeta.
+
+---
+
 ## 5.10. Diseño de navegación con Flexbox
+
+Flexbox permite crear diseños de navegación flexibles y responsivos. A continuación se muestra un ejemplo completo que incluye elementos como logotipos, menús y botones de autenticación.
 
 ```html
 <nav class="navbar">
@@ -414,7 +538,7 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
     .navbar {
         flex-wrap: wrap;
     }
-    
+
     .nav-menu {
         order: 3;
         flex-basis: 100%;
@@ -422,7 +546,7 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
         align-items: center;
         display: none;
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
@@ -430,9 +554,19 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 </style>
 ```
 
+### Explicación
+- **Distribución principal:** `justify-content: space-between` separa los elementos principales: logotipo, menú y botones de autenticación.
+- **Responsividad:** Con media queries, el menú cambia a una distribución vertical y se oculta inicialmente.
+- **Estilo adicional:** Se puede añadir un botón de hamburguesa para alternar la clase `active` en el menú.
+
+---
+
 ## 5.11. Tarjetas y sus aplicaciones con Flexbox
 
+Flexbox facilita el diseño de tarjetas responsivas y organizadas. Este ejemplo utiliza un grid de tarjetas.
+
 ### Grid de Tarjetas Responsivo
+
 ```html
 <div class="cards-grid">
     <div class="card">
@@ -483,7 +617,18 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 </style>
 ```
 
+### Explicación
+- **`flex-wrap`:** Permite que las tarjetas se ajusten a nuevas filas si el espacio es insuficiente.
+- **`flex: 1 1 300px`:** Cada tarjeta ocupa un mínimo de 300px pero puede crecer para llenar el espacio.
+- **`margin-top: auto`:** Mantiene el botón al final del contenido de la tarjeta.
+
+---
+
 ## 5.12. Integración de multimedia con Flexbox
+
+Flexbox también es ideal para diseños multimedia. A continuación se muestra una galería responsiva y un "Hero" con video de fondo.
+
+### Galería de Medios
 
 ```css
 /* Galería de medios responsiva */
@@ -505,7 +650,11 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
     height: 100%;
     object-fit: cover;
 }
+```
 
+### Hero con Video
+
+```css
 /* Hero section con video de fondo */
 .hero {
     display: flex;
@@ -532,7 +681,15 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 }
 ```
 
+### Explicación
+- **Galería:** Cada elemento ajusta su proporción con `aspect-ratio`, garantizando un diseño uniforme.
+- **Hero:** El video de fondo ocupa todo el área del contenedor y los elementos principales se centran.
+
+---
+
 ## 5.13. Uso de Flexbox en formularios
+
+Los formularios con Flexbox son eficientes y responsivos. A continuación un ejemplo:
 
 ```html
 <form class="flex-form">
@@ -591,3 +748,12 @@ Flexbox Froggy es un juego educativo que enseña las propiedades de Flexbox. Aqu
 }
 </style>
 ```
+
+### Explicación
+- **`flex: 1`:** Los inputs dentro de una fila se expanden equitativamente.
+- **`flex-direction: column`:** Facilita el apilado de elementos en pantallas pequeñas.
+- **Responsividad:** Los elementos se reorganizan verticalmente en dispositivos móviles.
+
+---
+
+

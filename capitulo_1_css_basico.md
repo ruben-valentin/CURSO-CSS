@@ -39,40 +39,200 @@ Los selectores son patrones que se utilizan para seleccionar elementos HTML que 
 
 ### Tipos de selectores:
 
-1. **Selector de elemento**
-```css
-p {
-    color: red;
-}
-```
+### 1. Selectores simples
+Son los más básicos y se utilizan para seleccionar elementos individuales o por características específicas.
 
-2. **Selector de clase**
-```css
-.destacado {
-    background-color: yellow;
-}
-```
+- **Selector de tipo**: Selecciona todos los elementos de un tipo específico.
+  ```css
+  p {
+      color: blue;
+  }
+  ```
+  Aplica el estilo a todos los elementos `<p>`.
 
-3. **Selector de ID**
-```css
-#header {
-    height: 80px;
-}
-```
+- **Selector de clase**: Selecciona elementos basados en su atributo `class`.
+  ```css
+  .mi-clase {
+      font-size: 16px;
+  }
+  ```
+  Aplica el estilo a todos los elementos con `class="mi-clase"`.
 
-4. **Selector descendente**
-```css
-div p {
-    margin: 10px;
-}
-```
+- **Selector de ID**: Selecciona un elemento único basado en su atributo `id`.
+  ```css
+  #mi-id {
+      background-color: yellow;
+  }
+  ```
+  Aplica el estilo al elemento con `id="mi-id"`.
 
-5. **Selector de atributo**
+- **Selector universal**: Selecciona todos los elementos.
+  ```css
+  * {
+      margin: 0;
+      padding: 0;
+  }
+  ```
+
+### 2. Selectores de atributos
+Permiten seleccionar elementos según los atributos y sus valores.
+
+- Seleccionar elementos que tienen un atributo específico:
+  ```css
+  [type] {
+      border: 1px solid black;
+  }
+  ```
+  Aplica el estilo a todos los elementos con el atributo `type`.
+
+- Seleccionar elementos con un atributo y un valor exacto:
+  ```css
+  [type="text"] {
+      color: red;
+  }
+  ```
+  Solo selecciona elementos donde `type="text"`.
+
+- Seleccionar elementos cuyo valor de atributo contiene una palabra específica:
+  ```css
+  [class~="highlight"] {
+      background-color: yellow;
+  }
+  ```
+  Aplica el estilo a los elementos cuya clase incluye la palabra "highlight".
+
+- Seleccionar elementos con un valor de atributo que comienza con un prefijo específico:
+  ```css
+  [href^="https"] {
+      color: green;
+  }
+  ```
+  Selecciona enlaces que comienzan con "https".
+
+- Seleccionar elementos con un valor de atributo que termina con un sufijo específico:
+  ```css
+  [href$=".pdf"] {
+      color: orange;
+  }
+  ```
+  Selecciona enlaces que terminan en ".pdf".
+
+- Seleccionar elementos con un valor de atributo que contiene una cadena específica:
+  ```css
+  [href*="example"] {
+      text-decoration: underline;
+  }
+  ```
+  Selecciona enlaces que contienen "example" en su valor.
+
+### 3. Selectores de grupo
+Permiten aplicar un mismo estilo a varios elementos seleccionados.
+
 ```css
-input[type="text"] {
-    border: 1px solid gray;
+h1, h2, h3 {
+    font-family: Arial, sans-serif;
 }
 ```
+Aplica el estilo a los elementos `<h1>`, `<h2>` y `<h3>`.
+
+### 4. Selectores combinadores
+Permiten seleccionar elementos basándose en su relación con otros elementos.
+
+- **Selector descendiente**:
+  ```css
+  div p {
+      color: blue;
+  }
+  ```
+  Selecciona todos los `<p>` dentro de un `<div>`.
+
+- **Selector hijo directo**:
+  ```css
+  div > p {
+      color: red;
+  }
+  ```
+  Selecciona solo los `<p>` que son hijos directos de un `<div>`.
+
+- **Selector adyacente**:
+  ```css
+  h1 + p {
+      font-style: italic;
+  }
+  ```
+  Selecciona el primer `<p>` que sigue inmediatamente a un `<h1>`.
+
+- **Selector de hermanos generales**:
+  ```css
+  h1 ~ p {
+      color: gray;
+  }
+  ```
+  Selecciona todos los `<p>` que son hermanos de un `<h1>`.
+
+### 5. Selectores pseudo-clase
+Se utilizan para seleccionar elementos en un estado o posición específico.
+
+- **Estados del enlace**:
+  ```css
+  a:link {
+      color: blue;
+  }
+  a:visited {
+      color: purple;
+  }
+  ```
+
+- **Interactivos**:
+  ```css
+  button:hover {
+      background-color: green;
+  }
+  button:active {
+      background-color: red;
+  }
+  ```
+
+- **Estructurales**:
+  ```css
+  tr:nth-child(odd) {
+      background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+      background-color: #ffffff;
+  }
+  ```
+
+### 6. Selectores pseudo-elemento
+Seleccionan partes específicas de un elemento.
+
+- Seleccionar la primera letra de un párrafo:
+  ```css
+  p::first-letter {
+      font-size: 2em;
+      color: red;
+  }
+  ```
+
+- Seleccionar el contenido antes o después de un elemento:
+  ```css
+  h1::before {
+      content: "¡Atención!";
+      color: orange;
+  }
+  ```
+
+### 7. Selectores avanzados (niveles más complejos)
+- **Selector de elementos negados**:
+  ```css
+  :not(.excluido) {
+      color: blue;
+  }
+  ```
+  Selecciona todos los elementos que no tienen la clase `excluido`.
+
+---
+
 
 ## 1.4. Métodos para vincular CSS a HTML
 
